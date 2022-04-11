@@ -116,6 +116,10 @@ case "$baseband" in
         if [ "$qcrild_status" = "true" ]; then
           start vendor.qcrild2
         else
+          stop vendor.ril-daemon
+          sleep .3
+          start vendor.ril-daemon
+          sleep .3
           start vendor.ril-daemon2
         fi
     elif [ "$multisim" = "tsts" ]; then
